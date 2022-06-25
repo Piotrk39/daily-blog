@@ -1,0 +1,35 @@
+<%- include("partials/header") %>
+
+<!-- New Post Form -->
+    <form action="/compose " method="post">
+
+        <div class="row">
+<!-- Title of the Page -->
+            <div>
+                <h1>Compose</h1>
+            </div>
+            <div>
+                <label for="title">Title:</label>
+            </div>
+<!-- Title -->
+            <div class="form-group ml-auto">
+                <input type="text" class="form-control" id="title" name="Title" placeholder="Title">
+            </div>
+        </div>
+        
+        <div class="row">   
+            <div>
+                <label for="blogPost">Post:</label>
+            </div>
+<!-- Content -->
+            <div class="form-group ml-auto">
+                <textarea class="form-control" id="blogPost" name="Content" rows="12" placeholder="Type here..."></textarea>
+            </div>
+<!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit" class="btn" name="Publish" value=" ">Publish</button>
+            </div>
+        </div>
+    </form>  
+
+<%- include("partials/footer") %>
