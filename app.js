@@ -76,14 +76,17 @@ app.get("/posts/:postId", function(req, res){
   const requestedPostId = req.params.postId;
   
   blogPost.findOne({_id: requestedPostId}, function(err, blogPosts){
-      res.render("post", {
-        title: blogPosts.title,
-        content: blogPosts.content,
-        route: "/" + requestedPostId
+
+    if(!err){
+        res.render("post", {
+          title: blogPosts.title,
+          content: blogPosts.content,
+          route: route + requestedPostId
+        });
+        console.log(requestedPostId)
+      }
       });
-      res.redirect("/" + requestedPostId);
-    });
-  
+    
   });
 
 app.get("/about", function(req, res){
