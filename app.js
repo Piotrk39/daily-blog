@@ -84,7 +84,7 @@ app.get("/posts/:postId", function(req, res){
           content: blogPosts.content,
           route: url+"/posts/"+requestedPostId
         });
-          // res.redirect(url+"https://mysterious-brushlands-82597.herokuapp.com" + requestedPostId);
+          res.redirect(url+"https://mysterious-brushlands-82597.herokuapp.com" + requestedPostId);
       }
       });
     
