@@ -71,14 +71,15 @@ app.get("/", function(req, res) {
 //   })
 // });
 
-app.get("/post/:postId", function(req, res){
+app.get("/posts/:postId", function(req, res){
 
   const requestedPostId = req.params.postId;
   
   blogPost.findOne({_id: requestedPostId}, function(err, blogPosts){
       res.render("post", {
         title: blogPosts.title,
-        content: blogPosts.content
+        content: blogPosts.content,
+        route: "/posts:postId"
       });
     });
   
