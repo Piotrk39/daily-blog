@@ -89,3 +89,17 @@ p {
     font-size: 12px;
     color: #f1ecd3;
 }
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+a {
+    color: inherit;
+ }
+
+ .about-me {
+    margin-top: 50px;
+ }

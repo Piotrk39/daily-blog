@@ -120,6 +120,8 @@ app.post("/compose", function(req, res) {
   
 });
 
+app.use('/public/images/', express.static('./public/images'));
+
 let port = process.env.PORT;
 if(port == null || port == ""){
     port = 3000;
