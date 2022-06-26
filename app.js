@@ -71,7 +71,7 @@ app.get("/", function(req, res) {
 //   })
 // });
 
-app.get("/posts/:postId", function(req, res){
+app.get("/post/:postId", function(req, res){
 
   const requestedPostId = req.params.postId;
   
