@@ -79,7 +79,7 @@ app.get("/posts/:postId", function(req, res){
       res.render("post", {
         title: blogPosts.title,
         content: blogPosts.content,
-        route: "/post:postId"
+        route: "/posts/:postId"
       });
     });
   
