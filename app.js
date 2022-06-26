@@ -74,7 +74,6 @@ app.get("/", function(req, res) {
 app.get("/posts/:postId", function(req, res){
 
   const requestedPostId = req.params.postId;
-  const url = "https://mysterious-brushlands-82597.herokuapp.com";
   
   blogPost.findOne({_id: requestedPostId}, function(err, blogPosts){
 
@@ -82,9 +81,8 @@ app.get("/posts/:postId", function(req, res){
         res.render("post", {
           title: blogPosts.title,
           content: blogPosts.content,
-          route: url+"/posts/"+requestedPostId
+          route: "/posts/"+requestedPostId
         });
-          res.redirect(url+"https://mysterious-brushlands-82597.herokuapp.com" + requestedPostId);
       }
       });
     
