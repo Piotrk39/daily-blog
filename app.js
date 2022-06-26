@@ -79,9 +79,9 @@ app.get("/posts/:postId", function(req, res){
       res.render("post", {
         title: blogPosts.title,
         content: blogPosts.content,
-        route: "/posts/" + requestedPostId
+        route: "/" + requestedPostId
       });
-      res.redirect("/posts/" + requestedPostId)
+      // res.redirect("/" + requestedPostId)
     });
   
   });
