@@ -61,9 +61,12 @@ app.get("/posts/:postId", function(req, res){
   blogPost.findOne({_id: requestedPostId},function(err, blogPosts){
     if(!err){
       res.render("post", {
-        matchPost: blogPosts,
+        thisTitle: blogPosts.title,
+        thisContent: blogPosts.content,
         route: "/posts:postId"
       })
+    } else {
+      res.redirect("/");
     }
   })
   
