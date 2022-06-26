@@ -81,9 +81,8 @@ app.get("/posts/:postId", function(req, res){
         res.render("post", {
           title: blogPosts.title,
           content: blogPosts.content,
-          route: route + requestedPostId
+          route: "https://mysterious-brushlands-82597.herokuapp.com" + requestedPostId
         });
-        console.log(requestedPostId)
       }
       });
     
