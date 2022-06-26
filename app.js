@@ -81,7 +81,7 @@ app.get("/posts/:postId", function(req, res){
         content: blogPosts.content,
         route: "/" + requestedPostId
       });
-      // res.redirect("/" + requestedPostId)
+      res.redirect("/" + requestedPostId);
     });
   
   });
