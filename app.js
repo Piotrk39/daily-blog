@@ -54,24 +54,35 @@ app.get("/", function(req, res) {
 
 // WORKING ON THIS ONE THE RECENT CHANGE IS MONGOOSE QUERY USE _ID TO RENDER THE CORRECT POST
 
-app.get("/posts/:postId", function(req, res){
+// app.get("/posts/:postId", function(req, res){
   
-  const requestedPostId =  req.params.postId;
+//   const requestedPostId =  req.params.postId;
 
-  blogPost.findOne({_id: requestedPostId},function(err, blogPosts){
-    if(!err){
-      res.render("post", {
-        thisTitle: blogPosts.title,
-        thisContent: blogPosts.content,
-        route: "/posts:postId"
-      })
-    } else {
-      res.redirect("/");
-    }
-  })
+//   blogPost.findOne({_id: requestedPostId},function(err, blogPosts){
+//     if(!err){
+//       res.render("post", {
+//         thisTitle: blogPosts.title,
+//         thisContent: blogPosts.content,
+//         route: "/posts:postId"
+//       })
+//     } else {
+//       res.redirect("/");
+//     }
+//   })
+// });
+
+app.get("/posts/:postId", function(req, res){
+
+  const requestedPostId = req.params.postId;
   
-    
-});
+  blogPost.findOne({_id: requestedPostId}, function(err, blogPosts){
+      res.render("post", {
+        title: blogPosts.title,
+        content: blogPosts.content
+      });
+    });
+  
+  });
 
 app.get("/about", function(req, res){
     res.render("about", {
