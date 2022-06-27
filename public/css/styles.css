@@ -103,3 +103,24 @@ a {
  .about-me {
     margin-top: 50px;
  }
+
+ .album {
+    margin-bottom: 10px;
+ }
+
+ /* Jumbotron classes */
+  
+  .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+  .card-img-top {
+    height: 100px;
+    width: 200px;
+  }
+
+  .album {
+    margin-top: 20px;
+  }
+
+  .btn-group {
+    margin-left: 10px;
+  }
