@@ -8,7 +8,7 @@ const findOrCreate = require('mongoose-findorcreate');
 
 const fs = require('fs');
 const path = require('path');
-require('dotenv/config');
+require('dotenv').config();
 
 // Google Oauth startegy constant
 
@@ -27,7 +27,7 @@ const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pelle
 
 // Step 2 - connect to the database
 
-mongoose.connect(process.env.MONGO_URL,
+mongoose.connect(process.env.MONGO_URL_LIVE,
     { useNewUrlParser: true, useUnifiedTopology: true }, err => {
       console.log('connected')
     });
@@ -45,8 +45,19 @@ const imageSchema = new mongoose.Schema({
 
 // User Schema to store the user and his hashed password
 
-const userSchema = new mongoose.Schema ({
-  googleId: String
+const userSchema = mongoose.Schema({
+  username: {
+    type: String,
+  },
+  googleId: {
+    type: String,
+  },
+  password: {
+    type: String,
+  },
+  authorName: {
+    type: Object,
+  },
 });
 
 // passport-mongoose initialize
@@ -86,13 +97,18 @@ passport.deserializeUser(function(id, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/secrets"
+    callbackURL: 'https://mysterious-brushlands-82597.herokuapp.com/auth/google/secrets'
   },
   function(accessToken, refreshToken, profile, cb) {
     // console.log(profile.id);
-    user.findOrCreate({ googleId: profile.id }, function (err, user) {
-      return cb(err, user);
-    });
+    user.findOrCreate(
+      { 
+        googleId: profile.id,
+        username: profile.emails[0].value
+      },
+      function (err, user) {
+        return cb(err, user);
+      });
   }
 ));
 
@@ -151,7 +167,7 @@ app.get('/', (req, res) => {
 // GOOGLE OUATH route
 
 app.get("/auth/google",
-  passport.authenticate('google', { scope: ["profile"] })
+  passport.authenticate('google', { scope: ["profile", "email"] })
 );
 
 app.get("/auth/google/secrets", 
@@ -163,7 +179,7 @@ app.get("/auth/google/secrets",
 // Step 8 - the POST handler for processing the uploaded file
 
 app.get("/compose", function(req, res) {
-  console.log(req.user.googleId)
+  // console.log(req.user.googleId)
   if(req.isAuthenticated() && req.user.googleId === process.env.USER_GOOGLE_ID) {
       res.render("compose", {
         route: "/compose"
@@ -230,15 +246,29 @@ app.get("/login", function(req, res){
   });
 });
 
+// LOGOUT
+
+app.get('/logout', function(req, res){
+  req.logout(function(err){
+      if(err){
+          console.log(err);
+      }else{
+          res.redirect('/');
+      }
+  });
+});
+
 // Require static images in blogposts
 
 app.use('/public/images/', express.static('./public/images'));
 
 // Step 9 - configure the server's port
 
-const port = process.env.PORT || '3000'
-app.listen(port, err => {
-  if (err)
-    throw err
-  console.log('Server listening on port', port)
+let port = process.env.PORT;
+if(port == null || port == ""){
+    port = 3000;
+}
+
+app.listen(port, function(){
+    console.log("Server started on port successfully!");
 });

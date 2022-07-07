@@ -1,3 +1,5 @@
+/* Navbar */
+
 .navbar-brand {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -34,6 +36,14 @@
     color: #f1ecd3 !important;
 }
 
+#logout {
+  text-decoration: underline;
+}
+
+/* -------------- */
+
+/* Body */
+
 body {
     background-color: #fafafa;
     height: 100%;
@@ -52,6 +62,10 @@ h2 {
 h3 {
     font-family: 'Montserrat', sans-serif;
 }
+
+/* --------------- */
+
+/* Compose */
 
 label {
     font-family: 'Montserrat', sans-serif;
@@ -76,6 +90,8 @@ p {
     background-color: #87b5a5;
     color: #F8DC81;
 }
+
+/* -------------------- */
 
 /* upload button styling */
 

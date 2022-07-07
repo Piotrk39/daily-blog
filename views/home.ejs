@@ -9,12 +9,12 @@
   <div class="col-md-4 album mx-auto">
     <div class="card mb-4 box-shadow">
         <div>
-            <img class="card-img-top" src="data:image/<%=image.img.contentType%>;base64,
+            <img class="card-img-top box-shadow" src="data:image/<%=image.img.contentType%>;base64,
             <%=image.img.data.toString('base64')%>">
         </div>  
           <div class="card-body">
           <h3 class="content"><%= image.title %></h3>
-          <p class="card-text content"><%= image.content %></p>
+          <p class="card-text content"><%=image.content.substring(0, 100)+" ..."%></p>
           <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             <a href="/posts/<%= image._id %>"><button type="button" class="btn btn-sm btn-outline-secondary">Read More</button></a>
