@@ -1,7 +1,7 @@
 <%- include("partials/header") %>
 
 <!-- New Post Form -->
-    <form action="/compose " method="post">
+    <form action="/compose " method="post" enctype="multipart/form-data">
 
         <div class="row">
 <!-- Title of the Page -->
@@ -24,6 +24,13 @@
 <!-- Content -->
             <div class="form-group ml-auto">
                 <textarea class="form-control" id="blogPost" name="Content" rows="12" placeholder="Type here..."></textarea>
+            </div>
+<!-- Upload file -->
+            <div class="mb-3 upload-img">
+                <label for="formFileSm" class="form-label">Upload image for the contetnt:</label>
+                <div>
+                    <label class="btn btn-default custom-color">Upload<input class="btn btn-default" id="formFileSm" name="image" type="file" hidden></label>
+                </div>
             </div>
 <!-- Submit Button -->
             <div class="form-group">

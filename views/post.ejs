@@ -1,6 +1,10 @@
 <%- include("partials/header") %>
 
     <div>
+        <div>
+            <img class="card-img-blogpost" src="data:image/<%=img.contentType%>;base64,
+            <%=img.data.toString('base64')%>">
+        </div>
         <h2><%=title%></h2>
         <p><%=content%> </p>
     </div> 

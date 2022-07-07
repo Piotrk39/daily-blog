@@ -4,6 +4,10 @@
     color: #f1ecd3;
 }
 
+.navbar-toggle {
+    color: #f1ecd3;
+}
+
 .navbar-header{
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -23,10 +27,11 @@
     margin-bottom: 0;
     font-size: 12px;
     letter-spacing: 5px;
+    color: #f1ecd3;
     background-color: #2a2626;
 }
 .navbar-nav  li a:hover {
-    color: #fafafa !important;
+    color: #f1ecd3 !important;
 }
 
 body {
@@ -72,6 +77,19 @@ p {
     color: #F8DC81;
 }
 
+/* upload button styling */
+
+[hidden] {
+    display: none !important;
+}
+
+.custom-color {
+    background-color: #2a2626;
+    color: #F8DC81;
+}
+
+/* ----------- */
+
 .btn:hover {
     background-color: #2a2626;
     color: #F8DC81;
@@ -110,23 +128,108 @@ a {
     margin-top: 50px;
  }
 
- .album {
-    margin-bottom: 10px;
- }
-
  /* Jumbotron classes */
   
-  .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+  .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, 0.301); }
+
+  .content {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 
   .card-img-top {
-    height: 100px;
-    width: 200px;
+    width: 100%;
+    max-width: 690px;
+    max-height: 300px;
+  }
+
+  .card-img-blogpost {
+    margin-top: 25px;
+    max-height: 100%;
+    max-width: 100%;
   }
 
   .album {
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+  }
+
+  .card {
+    height: 450px;
+    max-height: 500px;
+    max-width: 100%;
   }
 
   .btn-group {
-    margin-left: 10px;
+    position: absolute;
+    left: 25px;
+    top: 410px;
   }
+
+  .upload-img {
+    margin-bottom: 10px;
+  }
+
+  /* Auth page */
+.auth-form {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  
+  .auth-form p {
+    margin: 20px 0px;
+    color: #7a7a7a;
+  }
+  
+  .auth-button {
+    appearance: none;
+    border: 0;
+    padding: 10px 15px;
+    background-color: #87b5a5;
+    color: #F8DC81;
+    border-radius: 3px;
+    width: 250px;
+    margin: 0 auto 10px auto;
+  }
+
+  .auth-button:hover {
+    background-color: #2a2626;
+    color: #F8DC81;
+}
+
+.btn-social:hover {
+    text-decoration: none;
+    color: #F8DC81;
+}
+  
+  .or {
+    position: relative;
+    text-align: center;
+    margin: 20px 0px;
+  }
+  
+  .or span {
+    color: #2a2626;
+    background: #fafafa;
+    padding: 0px 10px;
+  }
+  
+  .or::before {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    height: 0px;
+    top: 50%;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    transform: translateY(-50%);
+    z-index: -1;
+    border-top: 1px solid #2a2626;
+    margin: 0px auto;
+  }
+  
