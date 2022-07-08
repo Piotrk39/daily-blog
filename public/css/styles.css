@@ -86,6 +86,11 @@ p {
     font-weight: 500;
 }
 
+.link-color {
+  color: #df5151;
+  text-decoration: underline;
+}
+
 .btn {
     background-color: #87b5a5;
     color: #F8DC81;
