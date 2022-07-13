@@ -1,0 +1,7 @@
+MONGO_URL='local_mongo_connection'
+MONGO_URL_LIVE='live_mongo_connection'
+SECRET_MESSAGE='secretemessage'
+API_KEY='api_key'
+CLIENT_ID='google_client_id'
+CLIENT_SECRET='client secret google auth 2.0'
+USER_GOOGLE_ID='user google id that we want to use with higher priviliges'
