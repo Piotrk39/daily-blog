@@ -1,0 +1,30 @@
+<%- include("partials/header"); %>
+<div >
+  <h1>Home</h1>
+  <p>Below you can observe my development documentation in form of a blog like like page. Each segment is presented in a separate card and has graphical sample in form of a picture. Source code can be seen <a class="link-color" href="https://github.com/Piotrk39/daily-blog" target="_blank" rel="noopener noreferrer">here</a>.</p>
+</div>
+
+<!-- Blog Post holder -->
+<% items.forEach(function(image) { %>  
+  <div class="col-md-4 album mx-auto">
+    <div class="card mb-4 box-shadow">
+        <div>
+            <img class="card-img-top box-shadow" src="data:image/<%=image.img.contentType%>;base64,
+            <%=image.img.data.toString('base64')%>">
+        </div>  
+          <div class="card-body">
+          <h3 class="content"><%= image.title %></h3>
+          <p class="card-text content"><%=image.content.substring(0, 100)+" ..."%></p>
+          <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <a href="/posts/<%= image._id %>"><button type="button" class="btn btn-sm btn-outline-secondary">Read More</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% }); %>
+
+      
+
+<%- include("partials/footer"); %>
